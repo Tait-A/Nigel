@@ -4,12 +4,12 @@ import socket
 import struct
 import time
 import sys
-from config import PI_IPV4
+from config import DICE_IPV4
 
 
 class ControlReceiver(object):
     def __init__(self):
-        ip_addr = PI_IPV4
+        ip_addr = DICE_IPV4
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_socket.bind((ip_addr, 65024))
         server_socket.listen(1)

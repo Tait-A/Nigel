@@ -53,7 +53,7 @@ class ControlSender(object):
         def __init__(self):
             ip_addr = PI_IPV4
             server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            server_socket.bind((ip_addr, 65024))
+            server_socket.bind((ip_addr, 1883))
             server_socket.listen(1)
             print("Waiting for connection...")
             self.connection, address = server_socket.accept()

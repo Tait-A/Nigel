@@ -15,9 +15,11 @@ if __name__ == "__main__":
     car = Robot()
     car_control = CarControl(car)
 
-    trajectory_file = os.path.join(os.path.dirname(__file__), "../trajectory.json")
+    trajectory_file = os.path.join(os.path.dirname(__file__), "../control_0.json")
 
-    trajectory = Trajectory.from_json(trajectory_file)
+    trajectory = Trajectory.from_json(trajectory_file, car)
 
     for action in trajectory.actions:
         car_control.process_action(action)
+        
+    car_control.cleanup()

@@ -4,7 +4,7 @@ import socket
 import struct
 import time
 import sys
-from config import PI_IPV4
+from config import PI_IPV4, DICE_IPV4
 
 
 # Replace 'your_object' with your actual Python object
@@ -20,7 +20,7 @@ your_object = {
 
 class ControlSender(object):
     def __init__(self):
-        ip_addr = PI_IPV4
+        ip_addr = DICE_IPV4
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         print("Attempting connection to " + str(ip_addr) + "...")
         client_socket.connect((ip_addr, 65024))

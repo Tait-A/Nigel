@@ -30,13 +30,15 @@ if __name__ == '__main__' :
     GPIO.output(Motor1E,GPIO.HIGH)
     forward.ChangeDutyCycle(0)
     reverse.ChangeDutyCycle(50)
-    sleep(2)
-
-
+    sleep(0.1)
+    reverse.ChangeDutyCycle(50)
+    sleep(0.1)
+    reverse.ChangeDutyCycle(50)
     # this will run your motor in forward direction for 5 seconds with 50% speed.
     print("GO forward")
     GPIO.output(Motor1E,GPIO.HIGH)
-    forward.ChangeDutyCycle(50)
+
+    # forward.ChangeDutyCycle(50)
     reverse.ChangeDutyCycle(0)
     sleep(5)
 

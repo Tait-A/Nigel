@@ -51,11 +51,11 @@ class CarControl(object):
         self.kit.servo[0].angle = converted_angle
         return angle
 
-    def set_speed(self, acceleration):
+    def set_speed(self, acceleration, t):
 
         self.speed = self.mp_to_speed()
 
-        new_speed = self.speed + acceleration
+        new_speed = self.speed + acceleration * t
 
         if new_speed > self.car.max_speed:
             new_speed = self.car.max_speed
@@ -80,5 +80,5 @@ class CarControl(object):
         if action.steering is not None:
             self.steering = self.set_steering(action.steering)
         if action.acceleration is not None:
-            self.set_speed(action.acceleration)
+            self.set_speed(action.acceleration, action.timestep)
         sleep(action.timestep)

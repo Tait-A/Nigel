@@ -18,7 +18,7 @@ class Robot:
         width=0,
         wheelbase=0.2,
         mass=1,
-        steering_lim=30,
+        steering_lim=1,
         max_speed=3,
         max_acc=1.5,
         friction=0.5,

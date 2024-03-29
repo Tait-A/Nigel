@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import numpy as np
 import RPi.GPIO as GPIO
 from adafruit_servokit import ServoKit
 from time import sleep
@@ -35,7 +35,7 @@ class CarControl(object):
 
         self.kit = ServoKit(channels=16)
 
-        self.max_mp = 75
+        self.max_mp = 100
 
         self.car = car
         self.speed = 0
@@ -45,6 +45,7 @@ class CarControl(object):
     def set_steering(self, angle):
         def convert_angle(angle):
             # 0 is like -35 180 is like 35
+            angle = np.degrees(angle)
             if angle > 35:
                 return 180
             elif angle < -35:

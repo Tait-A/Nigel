@@ -39,7 +39,7 @@ class CarControl(object):
 
         self.car = car
         self.speed = 0
-        self.motor_power = 0
+        self.motor_power = 40
         self.steering = self.set_steering(0)
 
     def set_steering(self, angle):
@@ -47,10 +47,10 @@ class CarControl(object):
             # 0 is like -35 180 is like 35
             angle = np.degrees(angle)
             if angle > 35:
-                return 180
+                return 140
             elif angle < -35:
-                return 0
-            return int((angle + 35) * 18 / 7)
+                return 40
+            return int((angle + 35) * 10 / 7) + 40
 
         converted_angle = convert_angle(angle)
         self.kit.servo[0].angle = converted_angle
@@ -72,8 +72,8 @@ class CarControl(object):
             new_mp = min(self.speed_to_mp(new_speed), self.max_mp)
 
         self.speed = new_speed
-        self.motor_power = int(new_mp)
-        print(new_mp)
+        self.motor_power = round(new_mp, 0)
+        print("Motor Power: ",self.motor_power)
         
         self.forwards.ChangeDutyCycle(self.motor_power)
         self.reverse.ChangeDutyCycle(0)

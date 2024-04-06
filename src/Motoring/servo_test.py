@@ -9,8 +9,8 @@ kit.servo[0].angle = 180
 
 time.sleep(1)
 
-kit.servo[0].angle = 30
+kit.servo[0].angle = 0
 
 time.sleep(1)
 
-kit.servo[0].angle = 90
+kit.servo[0].angle = 180
